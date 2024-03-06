@@ -54,6 +54,9 @@ env.Append(
     ]
 )
 
+print("Compiler opts:",  str(env["CCFLAGS"]))
+print("Link opts:", str(env["LINKFLAGS"]))
+
 if not board.get("build.ldscript", ""):
     env.Replace(LDSCRIPT_PATH=get_linker_script())
 
@@ -86,7 +89,7 @@ if(middlewares):
     for x in middlewares.split(","):
         print("Middleware %s referenced." % x)
         if isdir(join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())) and exists(join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())):
-            if x == "i2c_application_library": 
+            if x == "i2c_application_library":
                 env.Append(
                     CPPPATH=[
                         join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())
@@ -98,10 +101,15 @@ if(middlewares):
                     src_filter=["+<*.c>"]
                 ))
             if x == "freertos":
+                arm_cmx = "ARM_CM3" # Test FPU
+                for flag in env["CCFLAGS"]:
+                    if flag == "-mfloat-abi=softfp" or flag == "-mfloat-abi=hard":
+                        arm_cmx = "ARM_CM4F"
+                        break
                 env.Append(
                     CPPPATH=[
                         join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source", "include"),
-                        join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source", "portable", "GCC", "ARM_CM3")
+                        join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source", "portable", "GCC", arm_cmx)
                     ]
                 )
                 libs.append(env.BuildLibrary(
@@ -109,8 +117,8 @@ if(middlewares):
                     join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source"),
                     src_filter=[
                         "+<*.c>",
-                        "+<portable/common/*.c>",
-                        "+<portable/gcc/ARM_CM3/*.c>"
+                        #"+<portable/common/*.c>",
+                        "+<portable/gcc/" + arm_cmx + "/*.c>"
                     ]
                 ))
         else:

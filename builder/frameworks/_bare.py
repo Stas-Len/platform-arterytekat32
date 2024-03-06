@@ -6,6 +6,8 @@ import sys
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
+board = env.BoardConfig()
+cpu = board.get("build.cpu", "cortex-m4")
 
 env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
@@ -16,7 +18,7 @@ env.Append(
         "-fdata-sections",
         "-Wall",
         "-mthumb",
-        "-mcpu=cortex-m4",
+        "-mcpu=" + cpu,
         "-save-temps=obj" # 生成中间文件供检查优化
     ],
 
@@ -35,7 +37,7 @@ env.Append(
         "--specs=nano.specs",
         "--specs=nosys.specs",
         "-mthumb",
-        "-mcpu=cortex-m4",
+        "-mcpu=" + cpu,
         "-Wl,-Map,%s/linkmap.map" % env.get("BUILD_DIR")
     ],
 
@@ -45,9 +47,7 @@ env.Append(
 for i, flag in enumerate(env["CCFLAGS"]):
     if flag.find("-mfloat-abi") >= 0:
         env.Append(LINKFLAGS=[env["CCFLAGS"][i]])
-
-#sys.stderr.write("Me: env.Dictionary(LINKFLAGS) = " + str(env["LINKFLAGS"]) + "\n")
-
+        break
 
 if "BOARD" in env:
     env.Append(

@@ -4,6 +4,7 @@
 ### Remarks
 
 It is a fork from original (1.0.3) with bugfixes.
+Fixed F413 only
 
 ### Installation:
 1. Click "PlatformIO Core CLI" from VSCode PlatformIO Panel -> Quick Access -> Miscellaneous.
