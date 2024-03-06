@@ -10,7 +10,7 @@ It is a fork from original (1.0.3) with bugfixes.
 2. Enter below install commands:
 ```
 #pio pkg install -g -p https://github.com/ArteryTek/platform-arterytekat32
-pio pkg install -g -p https://github.com/Stas-Len/platform-arterytekat32-sl
+pio pkg install -g -p https://github.com/Stas-Len/platform-arterytekat32
 ```
 
 ### When you are using under Linux, before using, you need to install the udev rules for OpenOCD
