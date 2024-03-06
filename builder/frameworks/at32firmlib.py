@@ -30,7 +30,7 @@ def get_linker_script():
     if isfile(ldscript):
         return ldscript
 
-    sys.stderr.write("Warning! Cannot find a linker script for the required board! "+ldscript)
+    sys.stderr.write("Warning! Cannot find a linker script for the required board! "+ldscript+"\n")
 
 
 env.Append(

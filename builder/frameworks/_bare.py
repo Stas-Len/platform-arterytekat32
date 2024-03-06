@@ -1,7 +1,8 @@
-#
+﻿#
 # Default flags for bare-metal programming (without any framework layers)
 #
 
+import sys
 from SCons.Script import DefaultEnvironment
 
 env = DefaultEnvironment()
@@ -40,6 +41,13 @@ env.Append(
 
     LIBS=["c", "gcc", "m", "stdc++"]
 )
+
+for i, flag in enumerate(env["CCFLAGS"]):
+    if flag.find("-mfloat-abi") >= 0:
+        env.Append(LINKFLAGS=[env["CCFLAGS"][i]])
+
+#sys.stderr.write("Me: env.Dictionary(LINKFLAGS) = " + str(env["LINKFLAGS"]) + "\n")
+
 
 if "BOARD" in env:
     env.Append(

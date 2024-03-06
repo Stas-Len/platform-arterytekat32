@@ -1,10 +1,16 @@
+
 # PlatformIO platform package for ArteryTek AT32 MCUs
+
+### Remarks
+
+It is a fork from original (1.0.3) with bugfixes.
 
 ### Installation:
 1. Click "PlatformIO Core CLI" from VSCode PlatformIO Panel -> Quick Access -> Miscellaneous.
 2. Enter below install commands:
-``` 
-pio pkg install -g -p https://github.com/ArteryTek/platform-arterytekat32
+```
+#pio pkg install -g -p https://github.com/ArteryTek/platform-arterytekat32
+pio pkg install -g -p https://github.com/Stas-Len/platform-arterytekat32-sl
 ```
 
 ### When you are using under Linux, before using, you need to install the udev rules for OpenOCD
