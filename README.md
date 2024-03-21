@@ -9,6 +9,7 @@ Done:
 2. boards changed, if there is no FPU chip names "cortex-m4+nofp", it prevents compiler from using FPU
 3. builder *.py fixed and changed
 4. platform.json updated, toolchain version 12.3.1
+
 and if one needs
 5. f413 example is changed. It demonstrates .ini file with a choice of debugging from FLASH or RAM, rename output files (instead of "firmware"), ld script separating FLASH to Zero-Wait and slow, freertos in libdeps
 
