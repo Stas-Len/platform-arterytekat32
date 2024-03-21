@@ -10419,7 +10419,6 @@
               <bitWidth>1</bitWidth>
               <access>read-write</access>
             </field>
-
             <field>
               <name>TRGOVFC2</name>
               <description>Clear trigger overrun interrupt flag</description>
@@ -13352,8 +13351,7 @@
           <name>BUFCNT</name>
           <displayName>BUFCNT</displayName>
           <description>Bits 23:0 = BUFCOUNT: Remaining number of
-          words to be written to or read from the
-          FIFO</description>
+          words to be written to or read from the FIFO</description>
           <addressOffset>0x48</addressOffset>
           <size>0x20</size>
           <access>read-only</access>
@@ -24208,7 +24206,8 @@
               <description>Filter relation FIFO select</description>
               <bitOffset>16</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>            <field>
+            </field>
+            <field>
               <name>FRFSEL17</name>
               <description>Filter relation FIFO select</description>
               <bitOffset>17</bitOffset>
@@ -24374,7 +24373,8 @@
               <description>Filter activate enable</description>
               <bitOffset>14</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>            <field>
+            </field>
+            <field>
               <name>FAEN15</name>
               <description>Filter activate enable</description>
               <bitOffset>15</bitOffset>
@@ -27296,7 +27296,6 @@
             </field>
           </fields>
         </register>
-    
         <register>
           <name>F7FB1</name>
           <displayName>F7FB1</displayName>
@@ -39109,8 +39108,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUT</name>
               <description>Incomplete periodic transfer(Host
-              mode)/Incomplete isochronous OUT transfer(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -39295,8 +39293,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUTMSK</name>
               <description>Incomplete periodic transfer mask(Host
-              mode)/Incomplete isochronous OUT transfer mask(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer mask(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -47547,8 +47544,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUT</name>
               <description>Incomplete periodic transfer(Host
-              mode)/Incomplete isochronous OUT transfer(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -47733,8 +47729,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUTMSK</name>
               <description>Incomplete periodic transfer mask(Host
-              mode)/Incomplete isochronous OUT transfer mask(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer mask(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>

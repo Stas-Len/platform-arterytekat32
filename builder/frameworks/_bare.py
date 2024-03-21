@@ -13,13 +13,12 @@ env.Append(
     ASFLAGS=["-x", "assembler-with-cpp"],
 
     CCFLAGS=[
-        "-Os",  # optimize for size
+        "-O3",                  # optimize for speed
         "-ffunction-sections",  # place each function in its own section
         "-fdata-sections",
         "-Wall",
         "-mthumb",
         "-mcpu=" + cpu,
-        "-save-temps=obj" # 生成中间文件供检查优化
     ],
 
     CXXFLAGS=[
@@ -32,22 +31,15 @@ env.Append(
     ],
 
     LINKFLAGS=[
-        "-Os",
-        "-Wl,--gc-sections,--relax",
+        "-Wl,--gc-sections",
         "--specs=nano.specs",
         "--specs=nosys.specs",
-        "-mthumb",
-        "-mcpu=" + cpu,
-        "-Wl,-Map,%s/linkmap.map" % env.get("BUILD_DIR")
+        "-Wl,-Map,%s/linkmap.map" % env.get("BUILD_DIR"),
+        "-Wl,--no-warn-rwx-segment",
     ],
 
     LIBS=["c", "gcc", "m", "stdc++"]
 )
-
-for i, flag in enumerate(env["CCFLAGS"]):
-    if flag.find("-mfloat-abi") >= 0:
-        env.Append(LINKFLAGS=[env["CCFLAGS"][i]])
-        break
 
 if "BOARD" in env:
     env.Append(
@@ -57,3 +49,4 @@ if "BOARD" in env:
     )
 
 env.Append(ASFLAGS=env.get("CCFLAGS", [])[:])
+env.Append(LINKFLAGS=env.get("CCFLAGS", [])[:])

@@ -41,7 +41,7 @@ def get_bsp(product):
 with open(os.path.join(dirname, 'board.tpl.json'), "r") as template_file:
     template = Template(template_file.read())
 
-with open(os.path.join(dirname, 'at32.csv')) as f:
+with open(os.path.join(dirname, 'at32.csv'), "r") as f:
     reader = csv.DictReader(f, delimiter=',')
     for item in reader:
         # when SRAM is by '96/224' format, means ram can be configured to 96K or 224K,
@@ -66,7 +66,7 @@ with open(os.path.join(dirname, 'at32.csv')) as f:
                 possible_sram_sizes.append(size)
         item['sram_options'] = '/'.join(sram_options)
         item['sram_size'] = max([int(size) for size in possible_sram_sizes]) * 1024
-        
+
 
         item['SKU'] = item['SKU']
         item['variant'] = item['SKU'].replace('-','_')
@@ -77,9 +77,13 @@ with open(os.path.join(dirname, 'at32.csv')) as f:
             'x' + item['SKU'].replace(item['Product'], '')[1]
         item['bsp'] = get_bsp(item['Product'])
         rows[item['SKU']] = item
+        if item['FPU'] == 'Yes':
+            item['cpu'] = 'cortex-m4'
+        else:
+            item['cpu'] = 'cortex-m4+nofp'
 
 for item in rows:
     # print(rows[item])
     # print(template.substitute(rows[item]))
-    with open(os.path.join(dirname, '../boards/generic{}.json'.format(item)), 'w') as out:
+    with open(os.path.join(dirname, 'generic{}.json'.format(item)), 'w') as out:
         out.write(template.substitute(rows[item]))

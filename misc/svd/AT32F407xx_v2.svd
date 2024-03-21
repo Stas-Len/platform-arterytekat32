@@ -6935,8 +6935,7 @@
           <name>BUFCNT</name>
           <displayName>BUFCNT</displayName>
           <description>Bits 23:0 = BUFCOUNT: Remaining number of
-          words to be written to or read from the
-          FIFO</description>
+          words to be written to or read from the FIFO</description>
           <addressOffset>0x48</addressOffset>
           <size>0x20</size>
           <access>read-only</access>
@@ -23831,6 +23830,12 @@
           <size>0x20</size>
           <resetValue>0x00000030</resetValue>
           <fields>
+            <field>
+              <name>NULL</name>
+              <description>Reserved</description>
+              <bitOffset>0</bitOffset>
+              <bitWidth>32</bitWidth>
+            </field>
           </fields>
         </register>
         <register>

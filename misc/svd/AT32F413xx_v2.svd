@@ -8,7 +8,7 @@
   Purpose: System Viewer Description (SVD) Example (Schema Version 1.1)
            This is a description of a none-existent and incomplete device
        for demonstration purposes only.
-
+       
   Redistribution and use in source and binary forms, with or without
   modification, are permitted provided that the following conditions are met:
    - Redistributions of source code must retain the above copyright
@@ -16,23 +16,23 @@
    - Redistributions in binary form must reproduce the above copyright
      notice, this list of conditions and the following disclaimer in the
      documentation and/or other materials provided with the distribution.
-   - Neither the name of ARM nor the names of its contributors may be used
-     to endorse or promote products derived from this software without
+   - Neither the name of ARM nor the names of its contributors may be used 
+     to endorse or promote products derived from this software without 
      specific prior written permission.
 
-  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
-  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" 
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE 
   IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
   ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
   LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
-  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
-  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF 
+  SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS 
+  INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN 
+  CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) 
   ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
   POSSIBILITY OF SUCH DAMAGE.
  -->
-
+ 
 <device schemaVersion="1.1" xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:noNamespaceSchemaLocation="CMSIS-SVD.xsd" >
   <vendor>Keil</vendor>                                       <!-- device vendor name -->
   <vendorID>ArteryTek</vendorID>                                        <!-- device vendor short name -->
@@ -726,7 +726,7 @@
               <description>CAN2 reset</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>          
           </fields>
         </register>
         <register>
@@ -993,7 +993,7 @@
               <description>CAN2 clock enable</description>
               <bitOffset>31</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>          
           </fields>
         </register>
         <register>
@@ -2479,7 +2479,7 @@
               <description>TMR11 muxing</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
-            </field>
+            </field>            
           </fields>
         </register>
         <register>
@@ -2549,7 +2549,7 @@
               <description>I2C2 muxing</description>
               <bitOffset>8</bitOffset>
               <bitWidth>4</bitWidth>
-            </field>
+            </field>            
             <field>
               <name>SPI1_GMUX</name>
               <description>SPI1 muxing</description>
@@ -2634,28 +2634,28 @@
             </field>
             <field>
               <name>ADC1_ETP_GMUX</name>
-              <description>ADC1 external trigger preempted
+              <description>ADC1 external trigger preempted 
               conversion muxing</description>
               <bitOffset>4</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>ADC1_ETO_GMUX</name>
-              <description>ADC1 external trigger ordinary
+              <description>ADC1 external trigger ordinary 
               conversion muxing</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>ADC2_ETP_GMUX</name>
-              <description>ADC2 external trigger preempted
+              <description>ADC2 external trigger preempted 
               conversion muxing</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
             </field>
             <field>
               <name>ADC2_ETO_GMUX</name>
-              <description>ADC2 external trigger ordinary
+              <description>ADC2 external trigger ordinary 
               conversion muxing</description>
               <bitOffset>9</bitOffset>
               <bitWidth>1</bitWidth>
@@ -2668,7 +2668,7 @@
             </field>
             <field>
               <name>PD01_GMUX</name>
-              <description>PortD0/PortD1 mappingon
+              <description>PortD0/PortD1 mappingon 
               OSC_IN/OSC_OUT</description>
               <bitOffset>20</bitOffset>
               <bitWidth>1</bitWidth>
@@ -5030,7 +5030,7 @@
               <description>Clock divide factor bit9 and bit8</description>
               <bitOffset>15</bitOffset>
               <bitWidth>2</bitWidth>
-            </field>
+            </field>            
           </fields>
         </register>
         <register>
@@ -5540,7 +5540,7 @@
         <register>
           <name>INTEN</name>
           <displayName>INTEN</displayName>
-          <description>SDIO mask register
+          <description>SDIO mask register 
           (SDIO_INTEN)</description>
           <addressOffset>0x3C</addressOffset>
           <size>0x20</size>
@@ -7068,7 +7068,7 @@
             </field>
             <field>
               <name>TWCMSEL</name>
-              <description>Two-way count mode
+              <description>Two-way count mode 
               selection</description>
               <bitOffset>5</bitOffset>
               <bitWidth>2</bitWidth>
@@ -7313,7 +7313,7 @@
               <description>HALL interrupt enable</description>
               <bitOffset>5</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>            
             <field>
               <name>C4IEN</name>
               <description>Channel 4 interrupt
@@ -7893,7 +7893,7 @@
               <bitWidth>8</bitWidth>
             </field>
           </fields>
-        </register>
+        </register>     
         <register>
           <name>C1DT</name>
           <displayName>C1DT</displayName>
@@ -8004,7 +8004,7 @@
             </field>
             <field>
               <name>FCSODIS</name>
-              <description>Frozen channel status when
+              <description>Frozen channel status when 
               holistic output disable</description>
               <bitOffset>10</bitOffset>
               <bitWidth>1</bitWidth>
@@ -8137,7 +8137,7 @@
             </field>
             <field>
               <name>TWCMSEL</name>
-              <description>Two-way count mode
+              <description>Two-way count mode 
               selection</description>
               <bitOffset>5</bitOffset>
               <bitWidth>2</bitWidth>
@@ -8310,7 +8310,7 @@
               <description>Trigger interrupt enable</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>            
             <field>
               <name>C4IEN</name>
               <description>Channel 4 interrupt
@@ -8963,7 +8963,7 @@
             </field>
             <field>
               <name>TWCMSEL</name>
-              <description>Two-way count mode
+              <description>Two-way count mode 
               selection</description>
               <bitOffset>5</bitOffset>
               <bitWidth>2</bitWidth>
@@ -9136,7 +9136,7 @@
               <description>Trigger interrupt enable</description>
               <bitOffset>6</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>            
             <field>
               <name>C4IEN</name>
               <description>Channel 4 interrupt
@@ -11286,7 +11286,7 @@
               <description>Master clock frequency division bit3</description>
               <bitOffset>8</bitOffset>
               <bitWidth>1</bitWidth>
-            </field>
+            </field>      
             <field>
               <name>TDBEIE</name>
               <description>Transmit data buffer empty interrupt enable</description>
@@ -11532,7 +11532,7 @@
               <description>I2S division bit9 and bit8</description>
               <bitOffset>10</bitOffset>
               <bitWidth>2</bitWidth>
-            </field>
+            </field>      
             <field>
               <name>I2SMCLKOE</name>
               <description>I2S master clock output enable</description>
@@ -21171,14 +21171,6 @@
           <addressOffset>0x0</addressOffset>
           <size>0x20</size>
           <resetValue>0x00000030</resetValue>
-          <fields>
-            <field>
-              <name>NULL</name>
-              <description>Reserved</description>
-              <bitOffset>0</bitOffset>
-              <bitWidth>32</bitWidth>
-            </field>
-          </fields>
         </register>
         <register>
           <name>UNLOCK</name>
@@ -21557,7 +21549,7 @@
               <bitWidth>32</bitWidth>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>DA</name>
           <displayName>DA</displayName>
@@ -21591,7 +21583,7 @@
               <access>read-only</access>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>SLIB_STS1</name>
           <displayName>SLIB_STS1</displayName>
@@ -21622,7 +21614,7 @@
               <access>read-only</access>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>SLIB_PWD_CLR</name>
           <displayName>SLIB_PWD_CLR</displayName>
@@ -21677,7 +21669,7 @@
               <access>read-only</access>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>SLIB_SET_PWD</name>
           <displayName>SLIB_SET_PWD</displayName>
@@ -21694,7 +21686,7 @@
               <bitWidth>32</bitWidth>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>SLIB_SET_RANGE</name>
           <displayName>SLIB_SET_RANGE</displayName>
@@ -21723,7 +21715,7 @@
               <bitWidth>10</bitWidth>
             </field>
           </fields>
-        </register>
+        </register>  
         <register>
           <name>SLIB_UNLOCK</name>
           <displayName>SLIB_UNLOCK</displayName>

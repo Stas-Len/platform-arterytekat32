@@ -29,7 +29,7 @@
         "toolchain-gccarmnoneeabi": {
             "type": "toolchain",
             "owner": "platformio",
-            "version": ">=1.120201.0,<1.140000.0"
+            "version": "1.120301.0"
         },
         "framework-at32firmlib": {
             "type": "framework",

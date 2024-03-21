@@ -1,7 +1,7 @@
 {
   "build": {
     "core": "ArteryTek AT32",
-    "cpu": "cortex-m4",
+    "cpu": "cortex-m4+nofp",
     "f_cpu": "96000000L",
     "mcu": "AT32F425C8U7",
     "product_line": "AT32F425x8",

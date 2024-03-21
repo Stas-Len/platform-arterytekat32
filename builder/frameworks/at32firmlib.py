@@ -19,9 +19,6 @@ assert isdir(FRAMEWORK_DIR)
 FRAMEWORK_LIB_DIR = join(FRAMEWORK_DIR, bsp + "_Firmware_Library", "libraries")
 assert isdir(FRAMEWORK_LIB_DIR)
 
-FRAMEWORK_MIDDLEWARE_DIR = join(FRAMEWORK_DIR, bsp + "_Firmware_Library", "middlewares")
-
-
 
 def get_linker_script():
     ldscript = join(FRAMEWORK_LIB_DIR, "cmsis", "cm4", "device_support", "startup", "gcc",
@@ -31,7 +28,6 @@ def get_linker_script():
         return ldscript
 
     sys.stderr.write("Warning! Cannot find a linker script for the required board! "+ldscript+"\n")
-
 
 env.Append(
     CPPPATH=[
@@ -54,11 +50,9 @@ env.Append(
     ]
 )
 
-print("Compiler opts:",  str(env["CCFLAGS"]))
-print("Link opts:", str(env["LINKFLAGS"]))
-
 if not board.get("build.ldscript", ""):
     env.Replace(LDSCRIPT_PATH=get_linker_script())
+
 
 #
 # Target: Build Firmware Library
@@ -74,7 +68,7 @@ if board.get("build.at32firmlib.custom_system_setup", "no") == "no":
         join(FRAMEWORK_LIB_DIR, "cmsis", "cm4", "device_support"),
         src_filter=[
             "+<*.c>",
-            "+<startup/gcc/startup_%s.S>" % bsp.lower()
+            "+<startup/gcc/*.S>"
         ]
     ))
 
@@ -84,44 +78,5 @@ libs.append(env.BuildLibrary(
     src_filter=["+<*.c>"]
 ))
 
-middlewares = env.GetProjectOption("middlewares","")
-if(middlewares):
-    for x in middlewares.split(","):
-        print("Middleware %s referenced." % x)
-        if isdir(join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())) and exists(join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())):
-            if x == "i2c_application_library":
-                env.Append(
-                    CPPPATH=[
-                        join(FRAMEWORK_MIDDLEWARE_DIR, x.strip())
-                    ]
-                )
-                libs.append(env.BuildLibrary(
-                    join("$BUILD_DIR", "middleware", x.strip()),
-                    join(FRAMEWORK_MIDDLEWARE_DIR, x.strip()),
-                    src_filter=["+<*.c>"]
-                ))
-            if x == "freertos":
-                arm_cmx = "ARM_CM3" # Test FPU
-                for flag in env["CCFLAGS"]:
-                    if flag == "-mfloat-abi=softfp" or flag == "-mfloat-abi=hard":
-                        arm_cmx = "ARM_CM4F"
-                        break
-                env.Append(
-                    CPPPATH=[
-                        join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source", "include"),
-                        join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source", "portable", "GCC", arm_cmx)
-                    ]
-                )
-                libs.append(env.BuildLibrary(
-                    join("$BUILD_DIR", "middleware", x.strip()),
-                    join(FRAMEWORK_MIDDLEWARE_DIR, x.strip(), "source"),
-                    src_filter=[
-                        "+<*.c>",
-                        #"+<portable/common/*.c>",
-                        "+<portable/gcc/" + arm_cmx + "/*.c>"
-                    ]
-                ))
-        else:
-            sys.stderr.write("Middleware %s not exist.\r\n" % x)
 
 env.Append(LIBS=libs)

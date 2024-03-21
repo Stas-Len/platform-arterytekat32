@@ -21437,8 +21437,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUT</name>
               <description>Incomplete periodic transfer(Host
-              mode)/Incomplete isochronous OUT transfer(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
@@ -21623,8 +21622,7 @@
             <field>
               <name>INCOMPIP_INCOMPISOOUTMSK</name>
               <description>Incomplete periodic transfer mask(Host
-              mode)/Incomplete isochronous OUT transfer mask(Device
-              mode)</description>
+              mode)/Incomplete isochronous OUT transfer mask(Device mode)</description>
               <bitOffset>21</bitOffset>
               <bitWidth>1</bitWidth>
               <access>read-write</access>
